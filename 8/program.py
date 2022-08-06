@@ -1,9 +1,9 @@
 
+temp=1
+
 any_list=[x for x in range(700,800)]
 
 print(any_list)
-
-temp=1
 
 for i in any_list:
     
