@@ -42,4 +42,4 @@ WHERE order_status.status_name='In progress' AND order_.update_at<'2020-12-31'
 SELECT carts.cart_id, Order_status.status_name FROM carts 
 INNER JOIN Order_ ON carts.cart_id = Order_.carts_cart_id
 INNER JOIN Order_status ON Order_status.order_status_id = Order_.order_status_order_status_id
-WHERE Order_status.status_name='In progress'
+WHERE Order_status.status_name='Canceled'
