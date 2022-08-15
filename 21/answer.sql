@@ -10,17 +10,7 @@ SELECT DISTINCT products.product_id, products.product_title, order_.carts_cart_i
 INNER JOIN cart_product ON cart_product.products_product_id = products.product_id 
 INNER JOIN carts ON carts.cart_id = cart_product.carts_cart_id
 LEFT JOIN order_ ON order_.carts_cart_id = carts.cart_id
-WHERE order_.carts_cart_id IS NULL AND cart_product.products_product_id NOT IN (SELECT DISTINCT products.product_id FROM products 
-INNER JOIN cart_product ON cart_product.products_product_id = products.product_id 
-INNER JOIN carts ON carts.cart_id = cart_product.carts_cart_id
-LEFT JOIN order_ ON order_.carts_cart_id = carts.cart_id
-WHERE order_.carts_cart_id IS NULL ) 
-
-SELECT DISTINCT products.product_id, products.product_title, order_.carts_cart_id FROM products 
-INNER JOIN cart_product ON cart_product.products_product_id = products.product_id 
-INNER JOIN carts ON carts.cart_id = cart_product.carts_cart_id
-INNER JOIN order_ ON order_.carts_cart_id = carts.cart_id
-WHERE products.product_id NOT IN 
+WHERE order_.carts_cart_id IS NULL AND products.product_id NOT IN (SELECT products_product_id FROM cart_product ) 
 
 --3. Вывести топ 10 продуктов, которые добавляли в корзины чаще всего.+
 SELECT COUNT(cart_product.products_product_id) AS _temp_, products.product_title FROM cart_product INNER JOIN products ON cart_product.products_product_id = products.product_id
