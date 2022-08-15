@@ -31,6 +31,12 @@ WHERE categories.category_title IN ('Category 7', 'Category 11', 'Category 18');
 SELECT order_id FROM order_ INNER JOIN order_status ON order_.order_status_order_status_id=order_status.order_status_id 
 WHERE order_status.status_name='In progress'
 
+-- верхній запрос не вірний, забув що потрібно до певного часу переглянути заказ
+
+SELECT order_id FROM order_ INNER JOIN order_status ON order_.order_status_order_status_id=order_status.order_status_id 
+WHERE order_status.status_name='In progress' AND order_.update_at<'2020-12-31'
+
+
 --6. вывести все корзины, которые были созданы, но заказ так и не был оформлен.
 
 SELECT carts.cart_id, Order_status.status_name FROM carts 
