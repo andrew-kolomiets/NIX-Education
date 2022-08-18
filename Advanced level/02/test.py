@@ -1,0 +1,1 @@
+print(sorted([{'name': 'Oleg', 'age': 23}, {'name': 'Vasya', 'age': 19}], key=lambda d: d['age']))
