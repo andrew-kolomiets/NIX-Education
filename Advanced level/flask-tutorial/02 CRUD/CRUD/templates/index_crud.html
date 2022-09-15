@@ -1,0 +1,8 @@
+{% extends 'base_crud.html' %}
+{% block content %}
+    <ul>
+    {% for toy in toys %}
+        <li>{{ toy.name }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
