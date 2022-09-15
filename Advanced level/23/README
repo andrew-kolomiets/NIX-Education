@@ -1,0 +1,6 @@
+Протестируйте данные функции.
+
+Write tests for the swap and average functions of the app module. Can you find a bug?
+
+
+examples/pytest/app.py
